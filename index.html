@@ -1,0 +1,210 @@
+<html>
+<head>
+	<title>FinderScope.com</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+	<!-- EXTERNAL JAVASCRIPT -->
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+	<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.11/angular.min.js"></script>
+
+	<!-- LIBRARIES -->
+	<script type="text/javascript" src="/lib/tabletop-master/tabletop.js"></script>
+
+	<!-- APP JAVASCRIPT -->
+	
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/js/config.js"></script>
+	<script type="text/javascript" src="/js/controllers/dataController.js"></script>
+	<script type="text/javascript" src="/js/services/ResumeService.js"></script>
+	<script type="text/javascript" src="/js/services/ResumeService.js"></script>
+	<script type="text/javascript" src="/js/angular-isotope.js"></script>
+	<script type="text/javascript" src="/js/jquery.isotope.js"></script>
+	
+	<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/main-iso-ang.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/finderscope_matrix.css">
+	<link rel="stylesheet" type="text/css" href="/css/rec_linkedin.css">
+
+	<!-- 
+	<link rel="stylesheet" type="text/css" href="http://frisbfile.com/finderscope/css/main-iso-ang.css">
+	<link rel="stylesheet" type="text/css" href="http://frisbfile.com/finderscope/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://frisbfile.com/finderscope/css/finderscope_matrix.css">
+	<link rel="stylesheet" type="text/css" href="http://frisbfile.com/finderscope/css/rec_linkedin.css">
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/app.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/config.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/controllers/dataController.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/services/ResumeService.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/services/ResumeService.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/angular-isotope.js"></script>
+	<script type="text/javascript" src="http://frisbfile.com/finderscope/js/jquery.isotope.js"></script>
+	<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
+ -->
+</head>
+<body ng-app="finderscope">
+	<header>
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">FinderScope.com</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="#">Planning Map</a></li>
+		        <li><a href="#">Experience</a></li>
+		        <li><a href="#">Company Map</a></li>
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Leigh Boone <b class="caret"></b></a>
+		          <ul class="dropdown-menu">
+		          	
+		            <li><a href="#">Resume</a></li>
+		            <!-- <li><a href="#">Companies</a></li> -->
+		            <li><a href="#">Skills</a></li>
+		            <li><a href="#">Certifications</a></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</header>
+	
+	<div class="container-fluid" ng-controller="resumeController">
+		<div class="row">
+		  <div class="col-md-12">
+		  	<h2>Lily Santos: Waitress</h2>
+
+		    <h4>Filter</h4>
+		    
+		    <div  opt-kind ok-key="filter" >
+		    	<div class="btn-group">
+		    		<button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
+		    	</div>
+		    	<div class="btn-group">
+		      
+		      <button type='button' class='btn btn-default' ok-sel=".one">Casual Dining</button>
+		      <button type='button' class='btn btn-default' ok-sel=".two">Fine Dining</button>
+		      <button type='button' class='btn btn-default' ok-sel=".three">Catering</button>
+		      <button type='button' class='btn btn-default' ok-sel=".four">Other</button>
+		    </div>
+		    <div class="btn-group">
+		      <button type='button' class='btn btn-default' ok-sel=".a">Customer Service</button>
+		      <button type='button' class='btn btn-default' ok-sel=".b">Prep</button>
+		      <button type='button' class='btn btn-default' ok-sel=".c">Maintenance</button>
+		      <button type='button' class='btn btn-default' ok-sel=".d">Management</button>
+		      <button type='button' class='btn btn-default' ok-sel=".e">Education/Certification/Awards</button>
+		    </div>
+		    </div>
+		  </div>
+		</div>
+	
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Sort</h4>
+          <div class="btn-group" opt-kind ok-key="sortBy">
+            <button type="button" class="btn btn-default" ok-sel=".sub" ok-type="integer">Skill Type</button>
+            <button type="button" class="btn btn-default" ok-sel="[dateend]" ok-type="integer">Most recent</button>
+            <button type="button" class="btn btn-default" ok-sel="[years]">Years experience</button>
+            <button type="button" class="btn btn-default" ok-sel="[salary]" ok-type="integer">Salary</button>
+            <button type="button" class="btn btn-default active" ok-sel="[rec]" ok-type="integer">Number of Recommendations</button>
+          </div>
+        </div>
+      
+      </div>
+    
+        <p></p>
+      
+
+      <!-- ISOTOPECONTAINER -->
+      <div class="row">
+        <ul id="isotopeContainer" style="width:1145px" isotope-container ng-cloak class="ng-cloak">
+          <li ng-repeat="x in xList" isotope-item class="kindling {{x.class}}" onClick="removeItem(this)">
+
+             <div class="symbol ">{{x.name}}</div>
+             <div class="weight" years="{{x.years |number}}">{{x.years }} yrs</div>
+             <div class="weight" sub="{{x.sub}}">
+             	<a data-toggle="tooltip" data-placement="top" title="Customer Service" class="badge service" ng-if="x.sub=='service' ">S</a>
+             	<a data-toggle="tooltip" data-placement="top" title="Maintenance" class="badge maintenance" ng-if="x.sub=='maintenance' ">N</a>
+             	<a data-toggle="tooltip" data-placement="top" title="Preperation" class="badge prep" ng-if="x.sub=='prep' ">P</a>
+             	<a data-toggle="tooltip" data-placement="top" title="Management" class="badge manage" ng-if="x.sub=='manage' ">M</a>
+             	<a  data-toggle="tooltip" data-placement="top" title="Certifications and Awards" class="badge cert" ng-if="x.sub=='cert' ">C</a>
+             </div>
+             <div class="salary" salary="{{x.high_salary }}">{{x.high_salary|currency }}/hr</div>
+             <div class="end" date="{{x.date}}">{{x.dateend | date}}</div>
+             <div class="tasks" number="{{x.tasks}}">{{x.tasks}}</div>
+             <a href="#"  data-toggle="modal" data-target="#rec" class="rec" ng-if="x.rec>0" rec="{{x.rec}}"><span class="glyphicon glyphicon-star"></span>{{x.rec}}</a>
+             <a href="#" data-toggle="modal" data-target="#video" class="video" ng-if="x.video" ><span class="glyphicon glyphicon-film"></span></a>
+          </li>
+
+
+          
+      </div>
+
+      <div class="modal fade" id="video">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Task Related Video Clip</h4>
+            </div>
+            <div class="modal-body">
+              
+              <iframe width="560" height="315" src="//www.youtube.com/embed/fRcjgW8R-O0" frameborder="0" allowfullscreen></iframe>
+              <center>This is video of me showcasing the skill you clicked on</center>
+            </div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <div class="modal fade" id="rec">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Task Related Recomendations</h4>
+            </div>
+            <div class="modal-body">
+              
+              <div class="endorsements-container"><div class="endorsements-received" data-li-template="references"><ol><li><hgroup><h3>Graphic Designer</h3><h4>Cutting Edge Design</h4></hgroup><div class="endorsement-full"><div class="endorsement-picture"><span data-tracking="referrer" class="new-miniprofile-container /profile/mini-profile-with-connections?_ed=0_2uZaxGaB-wKP4HO82-1EsF" data-li-url="/profile/mini-profile-with-connections?_ed=0_2uZaxGaB-wKP4HO82-1EsF" data-li-tl="tl/shared/profile/mini_profile_shell"><strong><a href="https://www.linkedin.com/profile/view?id=72556623&amp;authToken=rYTe"><img alt="Sally Murray James" width="60" height="60" src="https://media.licdn.com/mpr/mpr/shrink_60_60/p/5/000/2b6/379/218195d.jpg"></a></strong></span></div><div class="endorsement-info"><hgroup><h5><span data-tracking="referrer" class="new-miniprofile-container /profile/mini-profile-with-connections?_ed=0_2uZaxGaB-wKP4HO82-1EsF" data-li-url="/profile/mini-profile-with-connections?_ed=0_2uZaxGaB-wKP4HO82-1EsF" data-li-tl="tl/shared/profile/mini_profile_shell"><strong><a href="https://www.linkedin.com/profile/view?id=72556623&amp;authToken=rYTe">Sally Murray James</a></strong></span></h5><h6>partner at Cutting Edge Design, Inc.</h6></hgroup><blockquote class="endorsement-quote"><p class="description" id="control_gen_55">Leigh's a first-rate designer for web and print, but she's also the rare soul who can look at a project, analyze what talent and software is needed, and map out how it can all happen. 
+              <br>
+
+              <br>
+              The best thing about supervising Leigh was that on the first day, she was already telling us what to do—and we were following her orders. She's quick to understand the nature of a task...<a href="#" title="Show more" class="toggle-show-more">more</a></p><script id="controlinit-dust-client-60" type="text/javascript+initialized" class="li-control">LI.Controls.addControl("control-dust-client-60", "ShowMore", {charCount: 375,showMoreText: "more",showLessText: "less"})</script></blockquote><span class="endorsement-date">June 4, 2013, Sally Murray managed Leigh  at Cutting Edge Design</span></div></div></li></ol></div><!-- /endorsements-received --><div class="endorsements-given"><ol><li><div class="endorsement-full"><div class="endorsement-picture"><span data-tracking="recommendee" class="new-miniprofile-container /profile/mini-profile-with-connections?_ed=0_35hlDbrOec2I-qzxM2dgy3" data-li-url="/profile/mini-profile-with-connections?_ed=0_35hlDbrOec2I-qzxM2dgy3" data-li-tl="tl/shared/profile/mini_profile_shell"><strong><img alt="Jenna Stoops" width="60" height="60" src="https://media.licdn.com/mpr/mpr/shrink_60_60/p/2/000/08c/25f/0d57b67.jpg"></strong></span></div><div class="endorsement-info"><hgroup><h5><span data-tracking="recommendee" class="new-miniprofile-container /profile/mini-profile-with-connections?_ed=0_35hlDbrOec2I-qzxM2dgy3" data-li-url="/profile/mini-profile-with-connections?_ed=0_35hlDbrOec2I-qzxM2dgy3" data-li-tl="tl/shared/profile/mini_profile_shell"><strong><a href="https://www.linkedin.com/profile/view?id=56496341&amp;authType=name&amp;authToken=FE3D">Jenna Stoops</a></strong></span></h5><h6>Contract Associate</h6></hgroup><blockquote class="endorsement-quote"><p class="description" id="control_gen_56">Jenna is one of the most conscientious and hard working recruiters I have worked with. I felt she had a great understanding of the work I do and the projects I was looking for. She took the time to get to know me and not just my skill set. Thanks Jenna!</p><script id="controlinit-dust-client-61" type="text/javascript+initialized" class="li-control">LI.Controls.addControl("control-dust-client-61", "ShowMore", {charCount: 375,showMoreText: "more",showLessText: "less"})</script></blockquote><span class="endorsement-date">August 11, 2013, Leigh was Jenna's client</span></div></div></li></ol></div><!-- /endorsements-given --></div>
+            </div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+     
+      <script type="text/javascript">
+      jQuery('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+</script>  
+	
+	</div>	
+</body>
+</html>
+
