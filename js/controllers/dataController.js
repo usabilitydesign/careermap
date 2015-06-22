@@ -1,26 +1,7 @@
 'use strict';
-angular.module('finderscope.controllers.dataController', [] ).
+angular.module('careermap.controllers.dataController', [] ).
 	 controller("resumeController", ["$scope",function($scope) {
 	     	
-		    	Tabletop.init( { key: 'https://docs.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=1guTLsqqQf2xMejYZ3Mf2p875EYbgxHKSfCEOI90GPDc&output=html',
-	            callback: showInfo,
-	            simpleSheet: true } );
-	  			
-	  			var data_array = [];
-
-			  	function showInfo(data, tabletop) {
-			  		
-			    	//alert("Successfully processed!")
-			    	console.log("data");
-			    	
-			    	angular.forEach(data, function(value, key){
-			    		this.push(key + ":" + value);
-			    	}, data_array);
-			    	// console.log(data_array)
-			    	return data_array;
-			    	
-
-			  	}
 			  	
 			  $scope.lily = [100,79,31,137,3,21,16,29,30,12,3,45,3,61];
 			  $scope.xList =[

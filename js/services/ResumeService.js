@@ -2,6 +2,6 @@
 
 'use strict';
  
-angular.module('finderscope.services.resume', [])
+angular.module('careermap.services.resume', [])
   .factory('ResumeService', [
     ])
