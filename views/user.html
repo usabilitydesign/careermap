@@ -1,0 +1,46 @@
+<div ng-controller="profileController">
+	
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2>User Info</h2>
+			<form action="" name="userinfo" class="form-inline">
+				
+			</form>
+		</div>
+	</div>
+	<div class="row" >
+		<div class="col-md-3">
+			<h2>Add Skills</h2>
+			<a class="btn btn-default" ng-click="addSkills([{'test':'test'}])">Skills</a>
+			<form action="" name="skills" class="form">
+				<ul>
+					<li class="checkbox" ng-repeat="skill in skills">
+					    <label>
+					      <input type="checkbox" value="{{skill.skill}}"> {{skill.skill}}
+					    </label>
+					</li>
+				</ul>
+			</form>
+		</div>
+
+		<div class="col-md-6">
+			<h2>Work History</h2>
+			<!-- <form action="" name="workhistory" class="form-inline" ng-model="history"> -->
+				<div class="form-group">
+					<label for="company">Company</label>
+					<input type="text" name="company" ng-model="history.company">
+				</div>
+				<div class="form-group">
+					<label for="company">Start Date</label>
+					<input type="date" name="start" ng-model="history.startdate">
+				</div>
+				<div class="form-group">
+					<label for="company">End Date</label>
+					<input type="date" name="end" ng-model="history.enddate">
+				</div>
+				<button class="btn btn-default" ng-click="addHistory(history)">Add History</button>	
+			<!-- </form> -->
+		</div>
+	</div>
+</div>

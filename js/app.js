@@ -4,10 +4,12 @@
 var app = angular.module('careermap',
   [ 'careermap.config'
   , 'careermap.controllers.dataController'
-  ,'iso.directives'
-  ,'firebase'
-  
-  
+  , 'careermap.controllers.loginController'
+  , 'careermap.controllers.profileController'
+  , 'iso.directives'
+  , 'firebase'
+  , 'ngRoute'
+
   ])
 	
 

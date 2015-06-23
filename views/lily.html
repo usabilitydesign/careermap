@@ -1,0 +1,69 @@
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Lily Santos: Waitress</h2>
+
+        <h4>Filter</h4>
+        
+        <div  opt-kind ok-key="filter" >
+          <div class="btn-group">
+            <button type='button' class='btn btn-default active' ok-sel="*">Show All</button>
+          </div>
+          <div class="btn-group">
+          
+          <button type='button' class='btn btn-default' ok-sel=".one">Casual Dining</button>
+          <button type='button' class='btn btn-default' ok-sel=".two">Fine Dining</button>
+          <button type='button' class='btn btn-default' ok-sel=".three">Catering</button>
+          <button type='button' class='btn btn-default' ok-sel=".four">Other</button>
+        </div>
+        <div class="btn-group">
+          <button type='button' class='btn btn-default' ok-sel=".a">Customer Service</button>
+          <button type='button' class='btn btn-default' ok-sel=".b">Prep</button>
+          <button type='button' class='btn btn-default' ok-sel=".c">Maintenance</button>
+          <button type='button' class='btn btn-default' ok-sel=".d">Management</button>
+          <button type='button' class='btn btn-default' ok-sel=".e">Education/Certification/Awards</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Sort</h4>
+          <div class="btn-group" opt-kind ok-key="sortBy">
+            <button type="button" class="btn btn-default" ok-sel=".sub" ok-type="integer">Skill Type</button>
+            <button type="button" class="btn btn-default" ok-sel="[dateend]" ok-type="integer">Most recent</button>
+            <button type="button" class="btn btn-default" ok-sel="[years]">Years experience</button>
+            <button type="button" class="btn btn-default" ok-sel="[salary]" ok-type="integer">Salary</button>
+            <button type="button" class="btn btn-default active" ok-sel="[rec]" ok-type="integer">Number of Recommendations</button>
+          </div>
+        </div>
+      
+      </div>
+
+<!-- ISOTOPECONTAINER -->
+<div class="row">
+  <ul id="isotopeContainer" style="width:1145px" isotope-container ng-cloak class="ng-cloak">
+    <li ng-repeat="x in xList" isotope-item class="kindling {{x.class}}" onClick="removeItem(this)">
+
+       <div class="symbol ">{{x.name}}</div>
+       <div class="weight" years="{{x.years |number}}">{{x.years }} yrs</div>
+       <div class="weight" sub="{{x.sub}}">
+       	<a data-toggle="tooltip" data-placement="top" title="Customer Service" class="badge service" ng-if="x.sub=='service' ">S</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Maintenance" class="badge maintenance" ng-if="x.sub=='maintenance' ">N</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Preperation" class="badge prep" ng-if="x.sub=='prep' ">P</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Management" class="badge manage" ng-if="x.sub=='manage' ">M</a>
+       	<a  data-toggle="tooltip" data-placement="top" title="Certifications and Awards" class="badge cert" ng-if="x.sub=='cert' ">C</a>
+       </div>
+       <div class="salary" salary="{{x.high_salary }}">{{x.high_salary|currency }}/hr</div>
+       <div class="end" date="{{x.date}}">{{x.dateend | date}}</div>
+       <div class="tasks" number="{{x.tasks}}">{{x.tasks}}</div>
+       <a href=""  data-toggle="modal" data-target="#rec" class="rec" ng-if="x.rec>0" rec="{{x.rec}}"><span class="glyphicon glyphicon-star"></span>{{x.rec}}</a>
+       <a href="" data-toggle="modal" data-target="#video" class="video" ng-if="x.video" ><span class="glyphicon glyphicon-film"></span></a>
+    </li>
+
+
+    
+</div>
+
+
+

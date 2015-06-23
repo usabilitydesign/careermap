@@ -1,0 +1,24 @@
+<!-- ISOTOPECONTAINER -->
+<div class="row">
+  <ul id="isotopeContainer" style="width:1145px" isotope-container ng-cloak class="ng-cloak skill">
+    <li ng-repeat="x in xList" isotope-item class="kindling {{x.class}}" onClick="removeItem(this)">
+
+       <div class="symbol ">{{x.name}}</div>
+       <div class="weight" years="{{x.years |number}}">{{x.years }} yrs</div>
+       <div class="weight" sub="{{x.sub}}">
+       	<a data-toggle="tooltip" data-placement="top" title="Customer Service" class="badge service" ng-if="x.sub=='service' ">S</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Maintenance" class="badge maintenance" ng-if="x.sub=='maintenance' ">N</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Preperation" class="badge prep" ng-if="x.sub=='prep' ">P</a>
+       	<a data-toggle="tooltip" data-placement="top" title="Management" class="badge manage" ng-if="x.sub=='manage' ">M</a>
+       	<a  data-toggle="tooltip" data-placement="top" title="Certifications and Awards" class="badge cert" ng-if="x.sub=='cert' ">C</a>
+       </div>
+       <div class="salary" salary="{{x.high_salary }}">{{x.high_salary|currency }}/hr</div>
+       <div class="end" date="{{x.date}}">{{x.dateend | date}}</div>
+       <div class="tasks" number="{{x.tasks}}">{{x.tasks}}</div>
+       <a href="#"  data-toggle="modal" data-target="#rec" class="rec" ng-if="x.rec>0" rec="{{x.rec}}"><span class="glyphicon glyphicon-star"></span>{{x.rec}}</a>
+       <a href="#" data-toggle="modal" data-target="#video" class="video" ng-if="x.video" ><span class="glyphicon glyphicon-film"></span></a>
+    </li>
+
+
+    
+</div>
