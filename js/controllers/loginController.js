@@ -1,38 +1,34 @@
-angular.module('careermap.controllers.loginController', ['utils'] ).controller("loginController", ["$scope", 'authManager',
-  function($scope, authManager) {
+angular.module('careermap.controllers.loginController', ['utils', 'firebase'] ).controller("loginController", ["$scope", '$firebaseAuth',
+  function($scope, $firebaseAuth) {
     
-    $scope.$watch('auth.provider', setPreferred);
-    setPreferred($scope.auth.provider);
-
-    $scope.filteredProviders = function() {
-       return _.filter($scope.providers, function(v,k) {
-          return k !== $scope.auth.provider;
-       });
+    var ref = new Firebase("https://careermap.firebaseio.com");
+    var auth = $firebaseAuth(ref);
+    $scope.login = function() {
+      ref.authWithPassword({
+        email    : "leigh765@me.com",
+        password : "paint123"
+      }, function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      });  
     };
-
-    $scope.colorMe = function(id) {
-       var c;
-       switch(id) {
-          case 'facebook':
-             c = 'btn-primary';
-             break;
-          case 'github':
-             c = 'btn-inverse';
-             break;
-          case 'twitter':
-             c = 'btn-info';
-             break;
-          default:
-             c = '';
-       }
-       return !$scope.preferred || $scope.preferred.id === id? c : '';
-    };
-
-    function setPreferred(provider) {
-      console.log(provider)
-       $scope.preferred = provider? angular.extend({}, $scope.providers[provider]) : null;
-       authManager.setPreferred(provider);
+    $scope.newAccount = function (userinfo) {
+      console.log(userinfo)
+      ref.createUser({
+        email    : userinfo.email,
+        password : userinfo.password
+      }, function(error, userData) {
+        if (error) {
+          console.log("Error creating user:", error);
+        } else {
+          console.log("Successfully created user account with uid:", userData.uid);
+        }
+      });
     }
+
     
   }
 ]);
