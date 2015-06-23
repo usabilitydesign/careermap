@@ -17,4 +17,12 @@ app.config(['$routeProvider',
   // establish authentication
   
 
- 
+  // your Firebase URL goes here
+  .constant('FIREBASE_URL', 'https://careermap.firebaseio.com/')
+  .constant('authProviders', [
+      { id: 'twitter',  name: 'Twitter',  icon: 'icon-twitter'  },
+      { id: 'facebook', name: 'Facebook', icon: 'icon-facebook' },
+      { id: 'github',   name: 'GitHub',   icon: 'icon-github'   },
+      { id: 'email',    name: 'Email',    icon: 'icon-envelope' }
+   ])
+  .constant('loginRedirectPath', '/login')

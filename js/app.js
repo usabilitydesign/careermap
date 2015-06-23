@@ -8,6 +8,10 @@ var app = angular.module('careermap',
   , 'careermap.controllers.profileController'
   , 'iso.directives'
   , 'firebase'
+  , 'firebase.utils'
+  , 'fireauthsrve'
+  , 'utils'
+  , 'firebase.routeSecurity'
   , 'ngRoute'
 
   ])

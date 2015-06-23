@@ -20,9 +20,8 @@
 
 	<!-- AngularFire -->
 	<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
-
-	<script src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
-	
+	<script src="/lib/firebase/firebase.utils.js"></script>
+	<script src="/lib/firebase/firebase.routeSecurity.js"></script>
 
 	<!-- LIBRARIES -->
 	<script type="text/javascript" src="/js/angular-isotope.js"></script>
@@ -41,7 +40,7 @@
 	<script type="text/javascript" src="/js/controllers/loginController.js"></script>
 
 	<script type="text/javascript" src="/js/services/ResumeService.js"></script>
-	
+	<script type="text/javascript" src="/js/services/firebaseAuth.js"></script>
 	
 	<link rel="stylesheet" type="text/css" href="/css/main-iso-ang.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -50,7 +49,24 @@
 
 </head>
 <body ng-app="careermap">
-	<ng-include src="includes/nav.html"></ng-include>
+	<ng-include src="'includes/nav.html'"></ng-include>
+	<article id="login" class="container" ng-controller="loginController">
+    <section class="row">
+        <div class="span3 sidebar"></div>
+        <div class="span6">
+            <article class="box">
+                <h2>Please Log In</h2>
+                <ul class="inline clearfix">
+                    <li ng-show="preferred" class="big">
+                        <a ng-click="login(preferred.id)" class="btn" ng-class="colorMe(preferred.id)"><i class="{{preferred.icon}}"></i> {{preferred.name}}</a>
+                    </li>
+                    <li ng-repeat="provider in filteredProviders()" ng-class="{'small':preferred !== null}"><a class="btn" ng-class="colorMe(provider.id)" ng-click="login(provider.id)"><i class="{{provider.icon}}"></i> {{provider.name}}</a></li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</article>
+	
 	
 	<div class="container-fluid">
 
